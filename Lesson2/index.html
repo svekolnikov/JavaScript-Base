@@ -17,7 +17,7 @@
 
       //пример 2
       d = b++;
-      alert(d); //ответ: 1 // сначала присвоение b=1 к d, далее инкремент b. d=1 b=2
+      alert(d); //ответ: 1 // сначала присвоение b=1 к d, далее инкремент b. d=1, b=2
 
       //пример 3
       c = 2 + ++a;
@@ -25,13 +25,88 @@
 
       //пример 4
       d = 2 + b++; // d = 2 + b = 2 + 2 = 4, далее инкремент b. b=3
-      alert(d); //ответ: 4 //
+      alert(d); //ответ: 4
       alert(a); //ответ: 3 // a инкрементирована два раза
-      alert(b); //ответ: 3 //
+      alert(b); //ответ: 3
 
       //Задание 2
+      let e = 2;
+      let x = 1 + (e *= 2);
+      alert(x); //ответ: 5 // x = 1 + ( 2 *= 2) = 1 + ( 2*2) = 1 + 4 = 5
 
       //Задание 3
+      const f = parseInt(prompt("Первое целочисленое число"));
+      const g = parseInt(prompt("Второе целочисленое число"));
+
+      if (f >= 0 && g >= 0) {
+        alert(`Оба числа положительные и их разность равна ${f - g}`);
+      }
+
+      if (f < 0 && g < 0) {
+        alert(`Оба числа отрицательные и их произведение равно ${f * g}`);
+      }
+
+      if (f * g < 0) {
+        alert(`Оба числа разных знаков и их сумма равна ${f + g}`);
+      }
+
+      //Задание 4
+      function sum(a, b) {
+        return a + b;
+      }
+
+      function subtraction(a, b) {
+        return a - b;
+      }
+
+      function division(a, b) {
+        return a / b;
+      }
+
+      function multiplication(a, b) {
+        return a * b;
+      }
+
+      //Задание 5
+      function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+          case operation === "sum":
+            return sum(arg1, arg2);
+
+          case operation === "sub":
+            return subtraction(arg1, arg2);
+
+          case operation === "div":
+            return division(arg1, arg2);
+
+          case operation === "mul":
+            return multiplication(arg1, arg2);
+        }
+      }
+
+      //Задание 6
+      const amount = parseInt(
+        prompt("Какое количество денег положить на счет?")
+      );
+      let ending = amount > 9 ? amount % 10 : amount;
+
+      if (Math.round(amount / 10) === 1) ending = 0;
+
+      let word = "рубл";
+      switch (ending) {
+        case 1:
+          word += "ь";
+          break;
+        case 2:
+        case 3:
+        case 4:
+          word += "я";
+          break;
+        default:
+          word += "ей";
+          break;
+      }
+      alert(`Зачислено ${amount} ${word}`);
     </script>
   </body>
 </html>
