@@ -9,6 +9,37 @@
   <body>
     <script>
       "use strict";
+
+      //ES5
+      function Product1(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+      Product1.prototype.make25PercentDiscount = function (discount = 25) {
+        this.price = this.price * (1 - discount / 100);
+      };
+
+      const product1 = new Product1("Nake", 10000);
+      console.log(product1);
+      product1.make25PercentDiscount();
+      console.log(product1);
+
+      //ES6
+      class Product2 {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+
+        make25PercentDiscount(discount = 25) {
+          this.price = this.price * (1 - discount / 100);
+        }
+      }
+
+      const product2 = new Product2("Reebok", 10000);
+      console.log(product2);
+      product2.make25PercentDiscount();
+      console.log(product2);
     </script>
   </body>
 </html>
