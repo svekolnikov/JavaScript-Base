@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function converter() {
+        const number = +prompt();
+        if (!Number.isInteger(number)) {
+          console.log("Not an integer");
+          return null;
+        } else if (number > 999 || number < 0) {
+          console.log("Number is out of range 0..999");
+          return null;
+        }
+
+        const hundreds = Math.floor(number / 100);
+        const tens = Math.floor((number - hundreds * 100) / 10);
+        const units = number - hundreds * 100 - tens * 10;
+
+        return {
+          units: units,
+          tens: tens,
+          hundreds: hundreds,
+        };
+      }
+
+      console.log(converter());
+    </script>
+  </body>
+</html>
