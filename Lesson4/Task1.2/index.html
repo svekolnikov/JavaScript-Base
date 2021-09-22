@@ -9,6 +9,67 @@
   <body>
     <script>
       "use strict";
+
+      //ES5
+      function Post1(author, text, date) {
+        this.author = author;
+        this.text = text;
+        this.date = date;
+      }
+      Post1.prototype.edit = function (text) {
+        this.text = text;
+      };
+
+      function AttachedPost1(author, text, date) {
+        Post1.call(this, author, text, date);
+        this.highlighted = false;
+      }
+
+      AttachedPost1.prototype = Object.create(Post1.prototype);
+      AttachedPost1.prototype.constructor = AttachedPost1;
+      AttachedPost1.prototype.makeTextHighlighted = function () {
+        this.highlighted = true;
+      };
+
+      const attachedPost1 = new AttachedPost1("George Orwell", "1984", "1949");
+      console.log(attachedPost1);
+      attachedPost1.edit("ES5");
+      attachedPost1.makeTextHighlighted();
+      console.log(attachedPost1);
+
+      //ES6
+      class Post2 {
+        constructor(author, text, date) {
+          this.author = author;
+          this.text = text;
+          this.date = date;
+        }
+
+        edit(text) {
+          this.text = text;
+        }
+      }
+
+      class AttachedPost2 extends AttachedPost1 {
+        constructor(author, text, date) {
+          super(author, text, date);
+          this.highlighted = false;
+        }
+
+        makeTextHighlighted() {
+          this.highlighted = true;
+        }
+      }
+
+      const attachedPost2 = new AttachedPost2(
+        "Erich Maria Remarque",
+        "Three Comrades",
+        "1936"
+      );
+      console.log(attachedPost2);
+      attachedPost2.edit("ES6");
+      attachedPost2.makeTextHighlighted();
+      console.log(attachedPost2);
     </script>
   </body>
 </html>
