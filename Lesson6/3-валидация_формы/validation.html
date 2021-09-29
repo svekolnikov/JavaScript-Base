@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        input {
-            border-style: solid;
-        }
+      input {
+        border-style: solid;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <form>
-        <input id="first" type="text"><br>
-        <br>
-        <input id="second" type="text"><br>
-        <br>
-        <button>Отправить</button>
+      <input id="first" type="text" /><br />
+      <br />
+      <input id="second" type="text" /><br />
+      <br />
+      <button>Отправить</button>
     </form>
 
     <!-- 
@@ -36,7 +36,25 @@
      -->
 
     <script>
-        
+      "use strict";
+
+      const formEl = document.querySelector("form");
+      const inputFirstEl = formEl.querySelector("input#first");
+      const inputSecondEl = formEl.querySelector("input#second");
+      formEl.querySelector("button").addEventListener("click", (event) => {
+        if (inputFirstEl.value === "") {
+          inputFirstEl.style.borderColor = "red";
+          event.preventDefault();
+        } else {
+          inputFirstEl.style.borderColor = "transparent";
+        }
+        if (inputSecondEl.value === "") {
+          inputSecondEl.style.borderColor = "red";
+          event.preventDefault();
+        } else {
+          inputSecondEl.style.borderColor = "transparent";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
