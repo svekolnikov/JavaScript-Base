@@ -1,14 +1,5 @@
 "use strict";
-/* 
-Разметка товара:
 
-<div class="product">
-    <div>${здесь_название_товара}</div>
-    <img src="${здесь путь до картинки}" alt="">
-    <div>${здесь_цена}</div>
-    <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
-</div>
-*/
 
 const products = {
     phones: [
@@ -75,6 +66,10 @@ const products = {
     ],
 };
 
+const buttons =  document.querySelectorAll('button').forEach(button => {
+    button.addEventListener("click", clickHandler);
+})
+
 
 /**
  * Эта функция должна вызываться при клике по кнопкам.
@@ -82,10 +77,11 @@ const products = {
  */
 function clickHandler(event) {
     //вам нужно очищать содержимое .products
+    document.querySelector('.products').innerHTML = '';
     
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
-    
+    showCategory(event.target.dataset.type);
 }
 
 /**
@@ -96,7 +92,8 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
+    const markup = getProductMarkup(products[category]);
+    document.querySelector('.products').innerHTML = markup;
 }
 
 /**
@@ -108,6 +105,37 @@ function showCategory(category) {
  * @returns {string} html-разметка для товара по аналогии из комментария
  * в верху этого файла.
  */
-function getProductMarkup(product) {
+function getProductMarkup(prods) {
+    let markup =  document.createElement('div');
+    prods.forEach(product => {
+        const nameEl = document.createElement('div');
+        nameEl.innerText = product.name;
+        markup.append(nameEl);
 
+        const img = document.createElement("img");
+        img.setAttribute('alt','');
+        img.setAttribute('src', `${product.imageUrl}`);
+        markup.append(img);
+
+        const price = document.createElement('div');
+        price.innerText = product.price;
+        markup.append(price);
+
+        const a = document.createElement("a");
+        a.setAttribute('href',`https://example.com/products/${product.id}`);
+        a.innerText = 'Подробнее';
+        markup.append(a);
+    });    
+    return markup.innerHTML;
 }
+
+/* 
+Разметка товара:
+
+<div class="product">
+    <div>${здесь_название_товара}</div>
+    <img src="${здесь путь до картинки}" alt="">
+    <div>${здесь_цена}</div>
+    <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
+</div>
+*/
