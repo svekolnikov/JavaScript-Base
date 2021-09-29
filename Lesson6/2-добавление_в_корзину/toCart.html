@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="product">
-        <div>Товар 1</div>
-        <img src="images/1.jpg" alt="">
-        <button>В корзину</button>
+      <div>Товар 1</div>
+      <img src="images/1.jpg" alt="" />
+      <button>В корзину</button>
     </div>
     <div class="product">
-        <div>Товар 1</div>
-        <img src="images/2.jpg" alt="">
-        <button>В корзину</button>
+      <div>Товар 1</div>
+      <img src="images/2.jpg" alt="" />
+      <button>В корзину</button>
     </div>
     <div class="product">
-        <div>Товар 1</div>
-        <img src="images/3.jpg" alt="">
-        <button>В корзину</button>
+      <div>Товар 1</div>
+      <img src="images/3.jpg" alt="" />
+      <button>В корзину</button>
     </div>
 
     <!-- Задание. Нужно чтобы при клике по кнопке, блок .product, в котором она
@@ -41,11 +41,15 @@
     -->
 
     <script>
-        
-		
-		function buttonClickHandler(event) {
-		
-		}
+      "use strict";
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", buttonClickHandler);
+      });
+
+      function buttonClickHandler(event) {
+        event.target.innerText = "Добавлено";
+        event.target.parentNode.style.background = "lightgreen";
+      }
     </script>
-</body>
+  </body>
 </html>
