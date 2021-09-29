@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div></div>
 
     <!-- 
@@ -17,16 +16,17 @@
     -->
 
     <script>
-        let div = document.querySelector('div');
+      "use strict";
+      let div = document.querySelector("div");
 
-        /**
-         * @param {number} percent величина процента от 0 до 100.
-         */
-        function changeProgress(percent) {
-            div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
-        }
+      /**
+       * @param {number} percent величина процента от 0 до 100.
+       */
+      function changeProgress(percent) {
+        div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
+      }
 
-        /* 
+      /* 
         Вам нужно в цикле for создать отложенные вызовы с помощью setTimeout. Т.е. в цикле должны
         быть вызовы функции setTimeout.
         1. В условии цикла должно быть i <= 100, т.к. именно значение счетчика будем
@@ -35,9 +35,12 @@
         можете также добавить какой-нибудь коэффициент, чтобы подобрать желаемую скорость
         заполнения прогресс-бара.
         */
-        
 
+      for (let i = 1; i <= 100; i++) {
+        setTimeout(() => {
+          changeProgress(i);
+        }, i * 15);
+      }
     </script>
-</body>
-
+  </body>
 </html>
