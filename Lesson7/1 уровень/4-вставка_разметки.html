@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- <a href="https://picsum.photos/200/300" target="_blank">ссылка</a> -->
 
     <!-- 
@@ -15,10 +15,16 @@
     -->
 
     <script>
-        let url = "https://picsum.photos/200/300";
-        let targetAttr = "_blank";
-        let linkText = "ссылка";
+      "use strict";
+      let url = "https://picsum.photos/200/300";
+      let targetAttr = "_blank";
+      let linkText = "ссылка";
 
+      const body = document.querySelector("body");
+      body.insertAdjacentHTML(
+        "afterbegin",
+        `<a href=${url} target=${targetAttr}>${linkText}</a>`
+      );
     </script>
-</body>
+  </body>
 </html>
