@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input type="range" min="20" max="100">
+  </head>
+  <body>
+    <input type="range" min="20" max="100" />
     <div>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, expedita.
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat,
+      expedita.
     </div>
-    
+
     <!-- 
     Задание. Нужно чтобы при смещении ползунка в div менялся размер шрифта.
     1. Получите ссылку на input.
@@ -19,10 +20,14 @@
         3.1 У функции-обработчика определите параметр event.
         3.2 Значение input'а читайте из event.target.value.
     -->
-    
 
     <script>
-        
+      "use strict";
+
+      const div = document.querySelector("div");
+      document.querySelector("input").addEventListener("input", (event) => {
+        div.style.fontSize = `${event.target.value}px`;
+      });
     </script>
-</body>
+  </body>
 </html>
