@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="product">
-        <div class="productName">Товар 1</div>
-        <img src="images/1.jpg" alt="">
-        <button>В корзину</button>
+      <div class="productName">Товар 1</div>
+      <img src="images/1.jpg" alt="" />
+      <button>В корзину</button>
     </div>
     <div class="product">
-        <div class="productName">Товар 1</div>
-        <img src="images/1.jpg" alt="">
-        <button>В корзину</button>
+      <div class="productName">Товар 1</div>
+      <img src="images/1.jpg" alt="" />
+      <button>В корзину</button>
     </div>
     <div class="product">
-        <div class="productName">Товар 1</div>
-        <img src="images/1.jpg" alt="">
-        <button>В корзину</button>
+      <div class="productName">Товар 1</div>
+      <img src="images/1.jpg" alt="" />
+      <button>В корзину</button>
     </div>
 
     <!-- Задание.
@@ -44,7 +44,15 @@
     -->
 
     <script>
+      "use strict";
 
+      document.querySelectorAll(".product").forEach((product) => {
+        product.style.background = "coral";
+      });
+
+      document.querySelectorAll(".productName").forEach((name) => {
+        name.style.fontSize = "24px";
+      });
     </script>
-</body>
+  </body>
 </html>
