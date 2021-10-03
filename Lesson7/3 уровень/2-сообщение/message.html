@@ -29,12 +29,13 @@
     <script>
       "use strict";
 
-      var audioElement = new Audio("notification.mp3");
+      const audioElement = new Audio("notification.mp3");
+      const msg = document.querySelector(".message");
+      const h = msg.clientHeight;
+
       document.querySelector("button").addEventListener("click", (event) => {
         audioElement.play();
-        const msg = document.querySelector(".message");
-        const h = msg.clientHeight;
-        msg.style.transform = `translateY(-${h}px)`;
+        msg.style.transform = `translateY(-${h + 50}px)`;
       });
     </script>
   </body>

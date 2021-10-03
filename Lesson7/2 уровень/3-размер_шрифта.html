@@ -25,7 +25,9 @@
       "use strict";
 
       const div = document.querySelector("div");
-      document.querySelector("input").addEventListener("input", (event) => {
+      const input = document.querySelector("input");
+      div.style.fontSize = `${input.value}px`;
+      input.addEventListener("input", (event) => {
         div.style.fontSize = `${event.target.value}px`;
       });
     </script>

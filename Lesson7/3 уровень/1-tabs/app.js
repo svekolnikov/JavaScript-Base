@@ -47,5 +47,5 @@ function changeActiveClass(event) {
  * @param {MouseEvent} event 
  */
 function changeText(event) {
-    text.innerText = texts[event.target.getAttribute('textAttr')];    
+    text.innerText = texts[event.target.dataset.text];    
 }
